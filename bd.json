@@ -5,8 +5,8 @@
     "senha": "123",
     "idade": "20",
     "genero": "M",
-    "dietas": [],
-    "treinos": []
+    "dietas": ["dieta1","dieta2","dieta3"],
+    "treinos": ["treino de ombro","treino de perna"]
   },
   {
     "nome": "pedro",
@@ -14,7 +14,7 @@
     "senha": "12345",
     "idade": "20",
     "genero": "M",
-    "dietas": [],
-    "treinos": []
+    "dietas": ["dieta1","dieta2"],
+    "treinos": ["treino de costas","treino de peito"]
   }
 ]

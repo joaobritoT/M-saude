@@ -214,6 +214,7 @@ def listar_dietas(usuario):
     for elemetos in dados_atualziados:
         if elemetos['nome'] == usuario:
             dietas = elemetos['dietas']
+            break
         else:
             dietas =  "nehum usuario encontrado"
     return dietas
