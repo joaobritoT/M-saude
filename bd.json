@@ -15,13 +15,11 @@
     "idade": "20",
     "genero": "M",
     "dietas": [
-      "https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta1500calorias.pdf",
       "https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta2000calorias.pdf",
       "https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta3000calorias.pdf"
     ],
     "treinos": [
-      "https://teses.usp.br/teses/disponiveis/39/39133/tde-14022013-085048/publico/Versao_para_impressao_Material_didatico_do_programa_de_intervencao_Anexo_4_corrigido.pdf",
-      "https://pt.scribd.com/document/628056676/costas"
+      "https://teses.usp.br/teses/disponiveis/39/39133/tde-14022013-085048/publico/Versao_para_impressao_Material_didatico_do_programa_de_intervencao_Anexo_4_corrigido.pdf"
     ]
   },
   {

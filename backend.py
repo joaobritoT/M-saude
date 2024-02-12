@@ -221,6 +221,44 @@ def listar_dietas(usuario):
         
     return dietas
 
+def deletar_dietas(dieta, usuario):
+    def carregar_dados(nome_arquivo):
+            try:
+                with open(nome_arquivo, 'r') as arquivo:
+                    dados = json.load(arquivo)
+            except FileNotFoundError:
+                dados = []
+            return dados
+    def salvar_dados(nome_arquivo,dados_atualizados):
+        with open(nome_arquivo, 'w') as arquivo:
+            json.dump(dados_atualizados, arquivo, indent=2)
+    dados_atualizados = carregar_dados('bd.json')
+    for elementos in dados_atualizados:
+        dietas=elementos['dietas']
+        if elementos['nome'] == usuario:
+            dietas.remove(dieta)
+            break
+    
+    salvar_dados('bd.json',dados_atualizados)
+
+def deletar_treinos(treino,usuario):
+    def carregar_dados(nome_arquivo):
+            try:
+                with open(nome_arquivo, 'r') as arquivo:
+                    dados = json.load(arquivo)
+            except FileNotFoundError:
+                dados = []
+            return dados
+    def salvar_dados(nome_arquivo,dados_atualizados):
+        with open(nome_arquivo, 'w') as arquivo:
+            json.dump(dados_atualizados, arquivo, indent=2)
+    dados_atualizados = carregar_dados('bd.json')
+    for elementos in dados_atualizados:
+        if elementos['nome'] == usuario:
+            elementos['treinos'].remove(treino)
+            break
+    salvar_dados('bd.json',dados_atualizados)
+
 def abrir_link(link):
     new = 2
     url = link

@@ -3,7 +3,7 @@ import customtkinter
 from PIL import Image
 from time import sleep
 
-#objetivo - funcao de apagar dietas e treinos, front end tela de listagem de meus treinos e minhas dietas
+#objetivo - atualizar pagina ao apagar dieta ou treino, front end tela de listagem de meus treinos e minhas dietas
 
 
 current_usuario = None
@@ -84,13 +84,18 @@ def criar_tela_logado():
         dietas = core.listar_dietas(current_usuario)
         def abrir_link(link):
             core.abrir_link(link)
+        def deletar(dieta):
+            core.deletar_dietas(dieta,current_usuario)
+            print("deletado",current_usuario)
         for elementos in dietas:
             print(elementos)
             lbl = customtkinter.CTkLabel(tela,text=elementos)
             lbl.pack()
            
-            btn = customtkinter.CTkButton(tela,text="abrir",command=lambda l=elementos:abrir_link(l))
+            btn = customtkinter.CTkButton(tela,text="abrir",command=lambda d=elementos:abrir_link(d))
             btn.pack()
+            btn_apagar = customtkinter.CTkButton(tela,text="apagar",command=lambda d=elementos:deletar(d),fg_color="red")
+            btn_apagar.pack()
         
         print(dietas)
     def tela_meus_treinos():
@@ -106,6 +111,8 @@ def criar_tela_logado():
            
             btn = customtkinter.CTkButton(tela,text="abrir",command=lambda l=elementos:abrir_link(l))
             btn.pack()
+            btn_deletar = customtkinter.CTkButton(tela,text="deletar",fg_color="red",command=lambda t=elementos:core.deletar_treinos(t,current_usuario))
+            btn_deletar.pack()
     def log_off():
         global current_usuario
         current_usuario = None
