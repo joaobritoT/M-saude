@@ -2,6 +2,7 @@ import json
 from random import randint
 from email.message import EmailMessage
 import smtplib
+import webbrowser
 
 class Usuario():
     def __init__(self,nome, email,senha,idade,genero):
@@ -217,8 +218,13 @@ def listar_dietas(usuario):
             break
         else:
             dietas =  "nehum usuario encontrado"
+        
     return dietas
-    
+
+def abrir_link(link):
+    new = 2
+    url = link
+    webbrowser.open(url,new=new)
         
 
        

@@ -3,7 +3,7 @@ import customtkinter
 from PIL import Image
 from time import sleep
 
-#objetivo - criar a secao de seu objetivo, criar a secao de seu objetivo para treinos e dietas, criar a area (meu perfil)
+#objetivo - funcao de apagar dietas e treinos, front end tela de listagem de meus treinos e minhas dietas
 
 
 current_usuario = None
@@ -80,18 +80,32 @@ def criar_tela_logado():
     #funcoes da tela meu perfil
     def tela_minhas_dietas():
         tela = customtkinter.CTkToplevel(main_deslogado)
-        tela.geometry("500x500")
+        tela.geometry("1000x500")
         dietas = core.listar_dietas(current_usuario)
+        def abrir_link(link):
+            core.abrir_link(link)
         for elementos in dietas:
-            lbl_dietas = customtkinter.CTkLabel(tela,text="{}".format(elementos))
-            lbl_dietas.pack()
+            print(elementos)
+            lbl = customtkinter.CTkLabel(tela,text=elementos)
+            lbl.pack()
+           
+            btn = customtkinter.CTkButton(tela,text="abrir",command=lambda l=elementos:abrir_link(l))
+            btn.pack()
+        
+        print(dietas)
     def tela_meus_treinos():
         tela = customtkinter.CTkToplevel(main_deslogado)
-        tela.geometry("500x500")
+        tela.geometry("1000x500")
         treinos = core.listar_treinos(current_usuario)
+        def abrir_link(link):
+            core.abrir_link(link)
         for elementos in treinos:
-            lbl_treinos = customtkinter.CTkLabel(tela,text="{}".format(elementos))
-            lbl_treinos.pack()
+            print(elementos)
+            lbl = customtkinter.CTkLabel(tela,text=elementos)
+            lbl.pack()
+           
+            btn = customtkinter.CTkButton(tela,text="abrir",command=lambda l=elementos:abrir_link(l))
+            btn.pack()
     def log_off():
         global current_usuario
         current_usuario = None
@@ -108,9 +122,45 @@ def criar_tela_logado():
             lbl_principal_objetivo.pack(padx=5,pady=5)
             #funcoes da tela
             def perder_peso():
-                print("selecionou perder peso")  
+                tela_dietas = customtkinter.CTkToplevel(main_deslogado)
+                tela_dietas.geometry("400x450")
+                minha_imagem_logado = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
+                lbl_nome_app = customtkinter.CTkLabel(tela_dietas,text="M-saude",width=300,height=100,fg_color=["#2CC985", "#2FA572"],font=("Helvetica",75,"bold"),corner_radius=10,image=minha_imagem_logado)
+                lbl_nome_app.pack(padx = 10, pady =10)
+                btn_dieta1 = customtkinter.CTkButton(tela_dietas,text="Dieta de 1800kcal",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta1800calorias.pdf"),print("abriu")))
+                btn_dieta1.pack(padx=5,pady=5)
+                btn_add_dieta1 = customtkinter.CTkButton(tela_dietas,text="Adicionar dieta",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_dieta("https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta1800calorias.pdf",current_usuario),print("adicionou")))
+                btn_add_dieta1.pack(padx=5,pady=5)
+                btn_dieta2 = customtkinter.CTkButton(tela_dietas,text="Dieta de 1500kcal",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta1500calorias.pdf"),print("abriu")))
+                btn_dieta2.pack(padx=5,pady=5)
+                btn_add_dieta2 = customtkinter.CTkButton(tela_dietas,text="Adicionar dieta",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_dieta("https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta1500calorias.pdf",current_usuario),print("adicionou")))
+                btn_add_dieta2.pack(padx=5,pady=5)
+                btn_dieta3 = customtkinter.CTkButton(tela_dietas,text="Dieta de 2000kcal",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta2000calorias.pdf"),print("abriu")))
+                btn_dieta3.pack(padx=5,pady=5)
+                btn_add_dieta3 = customtkinter.CTkButton(tela_dietas,text="Adicionar dieta",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_dieta("https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta2000calorias.pdf",current_usuario),print("adicionou")))
+                btn_add_dieta3.pack(padx=5,pady=5)
+                btn_voltar = customtkinter.CTkButton(tela_dietas,text="voltar",command=lambda:(tela_seu_objetivo.deiconify(),tela_dietas.withdraw()),fg_color="red",font=("Arial",20,"bold"))
+                btn_voltar.pack(padx=5,pady=5)
             def hipertrofia():
-                print("selecionou hipertrofia")
+                tela_dietas = customtkinter.CTkToplevel(main_deslogado)
+                tela_dietas.geometry("400x450")
+                minha_imagem_logado = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
+                lbl_nome_app = customtkinter.CTkLabel(tela_dietas,text="M-saude",width=300,height=100,fg_color=["#2CC985", "#2FA572"],font=("Helvetica",75,"bold"),corner_radius=10,image=minha_imagem_logado)
+                lbl_nome_app.pack(padx = 10, pady =10)
+                btn_dieta1 = customtkinter.CTkButton(tela_dietas,text="Dieta de 2500kcal",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta2500calorias.pdf"),print("abriu")))
+                btn_dieta1.pack(padx=5,pady=5)
+                btn_add_dieta1 = customtkinter.CTkButton(tela_dietas,text="Adicionar dieta",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_dieta("https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta2500calorias.pdf",current_usuario),print("adicionou")))
+                btn_add_dieta1.pack(padx=5,pady=5)
+                btn_dieta2 = customtkinter.CTkButton(tela_dietas,text="Dieta de 2800kcal",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://pt.scribd.com/document/453088515/2800kcal-1"),print("abriu")))
+                btn_dieta2.pack(padx=5,pady=5)
+                btn_add_dieta2 = customtkinter.CTkButton(tela_dietas,text="Adicionar dieta",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_dieta("https://pt.scribd.com/document/453088515/2800kcal-1",current_usuario),print("adicionou")))
+                btn_add_dieta2.pack(padx=5,pady=5)
+                btn_dieta3 = customtkinter.CTkButton(tela_dietas,text="Dieta de 3000kcal",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta3000calorias.pdf"),print("abriu")))
+                btn_dieta3.pack(padx=5,pady=5)
+                btn_add_dieta3 = customtkinter.CTkButton(tela_dietas,text="Adicionar dieta",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_dieta("https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta3000calorias.pdf",current_usuario),print("adicionou")))
+                btn_add_dieta3.pack(padx=5,pady=5)
+                btn_voltar = customtkinter.CTkButton(tela_dietas,text="voltar",command=lambda:(tela_seu_objetivo.deiconify(),tela_dietas.withdraw()),fg_color="red",font=("Arial",20,"bold"))
+                btn_voltar.pack(padx=5,pady=5)
             btn_perder_peso = customtkinter.CTkButton(tela_seu_objetivo,text="Peca de peso",width=350, font=("Arial",20,"bold"),command=perder_peso)
             btn_perder_peso.pack(padx=5,pady=5)
             btn_hipertrofia = customtkinter.CTkButton(tela_seu_objetivo,text="Hipertrofia",width=350, font=("Arial",20,"bold"),command=hipertrofia)
@@ -137,9 +187,45 @@ def criar_tela_logado():
             lbl_principal_objetivo.pack(padx=5,pady=5)
             #funcoes da tela
             def perder_peso():
-                print("selecionou perder peso")  
+                tela_treinos = customtkinter.CTkToplevel(main_deslogado)
+                tela_treinos.geometry("400x450")
+                minha_imagem_logado = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
+                lbl_nome_app = customtkinter.CTkLabel(tela_treinos,text="M-saude",width=300,height=100,fg_color=["#2CC985", "#2FA572"],font=("Helvetica",75,"bold"),corner_radius=10,image=minha_imagem_logado)
+                lbl_nome_app.pack(padx = 10, pady =10)
+                btn_treino1 = customtkinter.CTkButton(tela_treinos,text="Treino de cardio intenso",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://teses.usp.br/teses/disponiveis/39/39133/tde-14022013-085048/publico/Versao_para_impressao_Material_didatico_do_programa_de_intervencao_Anexo_4_corrigido.pdf"),print("abriu")))
+                btn_treino1.pack(padx=5,pady=5)
+                btn_add_treino1 = customtkinter.CTkButton(tela_treinos,text="Adicionar treino",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_treino("https://teses.usp.br/teses/disponiveis/39/39133/tde-14022013-085048/publico/Versao_para_impressao_Material_didatico_do_programa_de_intervencao_Anexo_4_corrigido.pdf",current_usuario),print("adicionou")))
+                btn_add_treino1.pack(padx=5,pady=5)
+                btn_treino2 = customtkinter.CTkButton(tela_treinos,text="treino de costas",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://pt.scribd.com/document/628056676/costas"),print("abriu")))
+                btn_treino2.pack(padx=5,pady=5)
+                btn_add_treino2 = customtkinter.CTkButton(tela_treinos,text="Adicionar treino",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_treino("https://pt.scribd.com/document/628056676/costas",current_usuario),print("adicionou")))
+                btn_add_treino2.pack(padx=5,pady=5)
+                btn_treino3 = customtkinter.CTkButton(tela_treinos,text="Treino de perna",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://cepe.usp.br/wp-content/uploads/TREINO-4-Muscula%C3%A7%C3%A3o.pdf"),print("abriu")))
+                btn_treino3.pack(padx=5,pady=5)
+                btn_add_treino3 = customtkinter.CTkButton(tela_treinos,text="Adicionar treino",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_treino("https://cepe.usp.br/wp-content/uploads/TREINO-4-Muscula%C3%A7%C3%A3o.pdf",current_usuario),print("adicionou")))
+                btn_add_treino3.pack(padx=5,pady=5)
+                btn_voltar = customtkinter.CTkButton(tela_treinos,text="voltar",command=lambda:(tela_seu_objetivo.deiconify(),tela_treinos.withdraw()),fg_color="red",font=("Arial",20,"bold"))
+                btn_voltar.pack(padx=5,pady=5)
             def hipertrofia():
-                print("selecionou hipertrofia")
+                tela_treinos = customtkinter.CTkToplevel(main_deslogado)
+                tela_treinos.geometry("400x450")
+                minha_imagem_logado = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
+                lbl_nome_app = customtkinter.CTkLabel(tela_treinos,text="M-saude",width=300,height=100,fg_color=["#2CC985", "#2FA572"],font=("Helvetica",75,"bold"),corner_radius=10,image=minha_imagem_logado)
+                lbl_nome_app.pack(padx = 10, pady =10)
+                btn_treino1 = customtkinter.CTkButton(tela_treinos,text="Treino de superiores completo",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://www.crefsp.gov.br/storage/app/arquivos/4d57a525a306535a4162d2c7bafd1b95.pdf"),print("abriu")))
+                btn_treino1.pack(padx=5,pady=5)
+                btn_add_treino1 = customtkinter.CTkButton(tela_treinos,text="Adicionar treino",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_treino("https://www.crefsp.gov.br/storage/app/arquivos/4d57a525a306535a4162d2c7bafd1b95.pdf",current_usuario),print("adicionou")))
+                btn_add_treino1.pack(padx=5,pady=5)
+                btn_treino2 = customtkinter.CTkButton(tela_treinos,text="treino de costas",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://pt.scribd.com/document/628056676/costas"),print("abriu")))
+                btn_treino2.pack(padx=5,pady=5)
+                btn_add_treino2 = customtkinter.CTkButton(tela_treinos,text="Adicionar treino",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_treino("https://pt.scribd.com/document/628056676/costas",current_usuario),print("adicionou")))
+                btn_add_treino2.pack(padx=5,pady=5)
+                btn_treino3 = customtkinter.CTkButton(tela_treinos,text="Treino de perna",font=("Arial",25,"bold"),fg_color="gray",command=lambda:(core.abrir_link("https://cepe.usp.br/wp-content/uploads/TREINO-4-Muscula%C3%A7%C3%A3o.pdf"),print("abriu")))
+                btn_treino3.pack(padx=5,pady=5)
+                btn_add_treino3 = customtkinter.CTkButton(tela_treinos,text="Adicionar treino",font=("Arial",20,"bold"),command=lambda:(core.cadastrar_treino("https://cepe.usp.br/wp-content/uploads/TREINO-4-Muscula%C3%A7%C3%A3o.pdf",current_usuario),print("adicionou")))
+                btn_add_treino3.pack(padx=5,pady=5)
+                btn_voltar = customtkinter.CTkButton(tela_treinos,text="voltar",command=lambda:(tela_seu_objetivo.deiconify(),tela_treinos.withdraw()),fg_color="red",font=("Arial",20,"bold"))
+                btn_voltar.pack(padx=5,pady=5)
             btn_perder_peso = customtkinter.CTkButton(tela_seu_objetivo,text="Perca de peso",width=350, font=("Arial",20,"bold"),command=perder_peso)
             btn_perder_peso.pack(padx=5,pady=5)
             btn_hipertrofia = customtkinter.CTkButton(tela_seu_objetivo,text="Hipertrofia",width=350, font=("Arial",20,"bold"),command=hipertrofia)
