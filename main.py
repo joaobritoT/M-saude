@@ -1,9 +1,7 @@
 import backend as core
 import customtkinter
 from PIL import Image
-from time import sleep
 
-#objetivo - Terminar front-end e confirmar validacoes (falta pouca coisa)
 
 
 current_usuario = None
@@ -19,6 +17,8 @@ def criar_tela_logado():
     def abrir_tela_meu_perfil():
         tela_meu_perfil = customtkinter.CTkToplevel(main_deslogado)
         tela_meu_perfil.geometry("300x300")
+        tela_meu_perfil.title("M-Saúde")
+        tela_meu_perfil.iconbitmap("imagens/icone_saude.ico")
         minha_imagem2 = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
         lbl_nome_app = customtkinter.CTkLabel(tela_meu_perfil,text="M-saude",width=450,height=100,fg_color="#0897B4",font=("Helvetica",50,"bold"),corner_radius=10,image=minha_imagem2)
         lbl_nome_app.pack(padx=10,pady=10)
@@ -36,6 +36,8 @@ def criar_tela_logado():
     #Tela principal logado
     main_logado = customtkinter.CTkToplevel(main_deslogado)
     main_logado.geometry("850x800")
+    main_logado.title("M-Saúde")
+    main_logado.iconbitmap("imagens/icone_saude.ico")
     main_logado.resizable(width=False,height=False)
 
 
@@ -81,6 +83,8 @@ def criar_tela_logado():
     def tela_minhas_dietas():
         tela = customtkinter.CTkToplevel(main_deslogado)
         tela.geometry("400x500")
+        tela.iconbitmap("imagens/icone_saude.ico")
+        tela.title("M-Saúde")
         tela.attributes('-topmost','true')
         minha_imagem2 = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
         lbl_nome_app = customtkinter.CTkLabel(tela,text="M-saude",width=370,height=100,fg_color="#0897B4",font=("Helvetica",50,"bold"),corner_radius=10,image=minha_imagem2)
@@ -96,6 +100,8 @@ def criar_tela_logado():
             popup = customtkinter.CTkToplevel(main_deslogado)
             popup.attributes('-topmost','true')
             popup.geometry("200x100")
+            popup.iconbitmap("imagens/icone_saude.ico")
+            popup.title("M-Saúde")
             lbl = customtkinter.CTkLabel(popup,text="Dieta deletada!")
             lbl.pack(padx=5,pady=5) 
             print("deletado",current_usuario)
@@ -115,6 +121,8 @@ def criar_tela_logado():
         tela = customtkinter.CTkToplevel(main_deslogado)
         tela.geometry("400x500")
         tela.attributes('-topmost','true')
+        tela.iconbitmap("imagens/icone_saude.ico")
+        tela.title("M-Saúde")
         minha_imagem2 = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
         lbl_nome_app = customtkinter.CTkLabel(tela,text="M-saude",width=370,height=100,fg_color="#0897B4",font=("Helvetica",50,"bold"),corner_radius=10,image=minha_imagem2)
         lbl_nome_app.pack(padx=10,pady=10)
@@ -128,6 +136,9 @@ def criar_tela_logado():
             tela.withdraw()
             popup = customtkinter.CTkToplevel(main_deslogado)
             popup.geometry("200x100")
+            popup.attributes('-topmost','true')
+            popup.title("M-Saúde")
+            popup.iconbitmap("imagens/icone_saude.ico")
             lbl = customtkinter.CTkLabel(popup,text="treino deletado!",font=("Arial",35,"bold"))
             lbl.pack(padx=5,pady=5) 
             print("deletado",current_usuario)
@@ -151,6 +162,9 @@ def criar_tela_logado():
         if current_usuario != None:
             tela_seu_objetivo = customtkinter.CTkToplevel(main_deslogado)
             tela_seu_objetivo.geometry("400x300")
+            tela_seu_objetivo.title("M-Saúde")
+            tela_seu_objetivo.iconbitmap("imagens/icone_saude.ico")
+            tela_seu_objetivo.attributes('-topmost','true')
             minha_imagem2 = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
             lbl_nome_app = customtkinter.CTkLabel(tela_seu_objetivo,text="M-saude",width=350,height=100,fg_color="#0897B4",font=("Helvetica",50,"bold"),corner_radius=10,image=minha_imagem2)
             lbl_nome_app.pack(padx=10,pady=10)
@@ -160,6 +174,9 @@ def criar_tela_logado():
             def perder_peso():
                 tela_dietas = customtkinter.CTkToplevel(main_deslogado)
                 tela_dietas.geometry("400x450")
+                tela_dietas.title("M-Saúde")
+                tela_dietas.attributes('-topmost','true')
+                tela_dietas.iconbitmap("imagens/icone_saude.ico")
                 minha_imagem_logado = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
                 lbl_nome_app = customtkinter.CTkLabel(tela_dietas,text="M-saude",width=300,height=100,fg_color="#0897B4",font=("Helvetica",75,"bold"),corner_radius=10,image=minha_imagem_logado)
                 lbl_nome_app.pack(padx = 10, pady =10)
@@ -180,6 +197,9 @@ def criar_tela_logado():
             def hipertrofia():
                 tela_dietas = customtkinter.CTkToplevel(main_deslogado)
                 tela_dietas.geometry("400x450")
+                tela_dietas.title("M-Saúde")
+                tela_dietas.attributes('-topmost','true')
+                tela_dietas.iconbitmap("imagens/icone_saude.ico")
                 minha_imagem_logado = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
                 lbl_nome_app = customtkinter.CTkLabel(tela_dietas,text="M-saude",width=300,height=100,fg_color="#0897B4",font=("Helvetica",75,"bold"),corner_radius=10,image=minha_imagem_logado)
                 lbl_nome_app.pack(padx = 10, pady =10)
@@ -209,6 +229,8 @@ def criar_tela_logado():
                 print("faca login")
                 popup = customtkinter.CTkToplevel(main_deslogado)
                 popup.geometry("200x200")
+                popup.title("M-Saúde")
+                popup.iconbitmap("imagens/icone_saude.ico")
                 lbl = customtkinter.CTkLabel(popup,text="faca login")
                 lbl.pack()  
 
@@ -216,6 +238,9 @@ def criar_tela_logado():
         if current_usuario != None:
             tela_seu_objetivo = customtkinter.CTkToplevel(main_deslogado)
             tela_seu_objetivo.geometry("400x300")
+            tela_seu_objetivo.title("M-Saúde")
+            tela_seu_objetivo.iconbitmap("imagens/icone_saude.ico")
+            tela_seu_objetivo.attributes('-topmost','true')
             minha_imagem2 = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
             lbl_nome_app = customtkinter.CTkLabel(tela_seu_objetivo,text="M-saude",width=350,height=100,fg_color="#0897B4",font=("Helvetica",50,"bold"),corner_radius=10,image=minha_imagem2)
             lbl_nome_app.pack(padx=10,pady=10)
@@ -225,6 +250,9 @@ def criar_tela_logado():
             def perder_peso():
                 tela_treinos = customtkinter.CTkToplevel(main_deslogado)
                 tela_treinos.geometry("400x450")
+                tela_treinos.title("M-Saúde")
+                tela_treinos.iconbitmap("imagens/icone_saude.ico")
+                tela_treinos.attributes('-topmost','true')
                 minha_imagem_logado = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
                 lbl_nome_app = customtkinter.CTkLabel(tela_treinos,text="M-saude",width=300,height=100,fg_color="#0897B4",font=("Helvetica",75,"bold"),corner_radius=10,image=minha_imagem_logado)
                 lbl_nome_app.pack(padx = 10, pady =10)
@@ -245,6 +273,9 @@ def criar_tela_logado():
             def hipertrofia():
                 tela_treinos = customtkinter.CTkToplevel(main_deslogado)
                 tela_treinos.geometry("400x450")
+                tela_treinos.title("M-Saúde")
+                tela_treinos.iconbitmap("imagens/icone_saude.ico")
+                tela_treinos.attributes('-topmost','true')
                 minha_imagem_logado = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
                 lbl_nome_app = customtkinter.CTkLabel(tela_treinos,text="M-saude",width=300,height=100,fg_color="#0897B4",font=("Helvetica",75,"bold"),corner_radius=10,image=minha_imagem_logado)
                 lbl_nome_app.pack(padx = 10, pady =10)
@@ -273,6 +304,9 @@ def criar_tela_logado():
                 print("faca login")
                 popup = customtkinter.CTkToplevel(main_deslogado)
                 popup.geometry("200x200")
+                popup.title("M-Saúde")
+                popup.iconbitmap("imagens/icone_saude.ico")
+                popup.attributes('-topmost','true')
                 lbl = customtkinter.CTkLabel(popup,text="faca login")
                 lbl.pack()   
 
@@ -320,6 +354,7 @@ def criar_tela_login():
 def tela_cadastro():
     tela_cadastro = customtkinter.CTkToplevel(main_deslogado)
     tela_cadastro.geometry("500x580")
+    tela_cadastro.title("M-saude")
     tela_cadastro.attributes('-topmost','true')
     minha_imagem2 = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
     lbl_nome_app = customtkinter.CTkLabel(tela_cadastro,text="M-saude",width=480,height=100,fg_color="#0897B4",font=("Helvetica",50,"bold"),corner_radius=10,image=minha_imagem2)
@@ -334,7 +369,7 @@ def tela_cadastro():
     entrada_email.pack()
     lbl_senha_cadastro = customtkinter.CTkLabel(tela_cadastro,text="Senha",font=("Arial",20,"bold"))
     lbl_senha_cadastro.pack(padx=5,pady=5)
-    entrada_senha = customtkinter.CTkEntry(tela_cadastro,placeholder_text="Digite sua senha:",width=200)
+    entrada_senha = customtkinter.CTkEntry(tela_cadastro,placeholder_text="Digite sua senha:",width=200,show='*')
     entrada_senha.pack()
     generos = ['M','F']
     lbl_genero_cadastro = customtkinter.CTkLabel(tela_cadastro,text="Gênero",font=("Arial",20,"bold"))
@@ -354,6 +389,10 @@ def tela_cadastro():
             core.cadastrar_usuario(entrada_nome.get(),entrada_email.get(),entrada_senha.get(),entrada_idade.get(),genero.get())
             tela_cadastro.geometry("500x600")
             lbl_resultado.configure(text="Usuário adicionado com sucesso!",font=("Arial",20,"bold"),text_color="green")
+            entrada_email.delete(0,'end')
+            entrada_nome.delete(0,'end')
+            entrada_idade.delete(0,'end')
+            entrada_senha.delete(0,'end')
     botao = customtkinter.CTkButton(tela_cadastro,text="Cadastrar",font=("Arial",20,"bold"),fg_color="#0897B4",hover_color="gray",command=verificar)
     botao.pack(padx=5,pady=5)
     btn_voltar = customtkinter.CTkButton(tela_cadastro,text="Voltar",font=("Arial",20,'bold'),fg_color="gray",hover_color="gray",command=tela_cadastro.withdraw)
@@ -366,6 +405,7 @@ def tela_cadastro():
 def tela_calc_imc():
     tela_imc = customtkinter.CTkToplevel(main_deslogado)
     tela_imc.geometry("500x420")
+    tela_imc.title("M-saude")
     tela_imc.attributes('-topmost','true')
     minha_imagem2 = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
     lbl_nome_app = customtkinter.CTkLabel(tela_imc,text="M-saude",width=450,height=100,fg_color="#0897B4",font=("Helvetica",50,"bold"),corner_radius=10,image=minha_imagem2)
@@ -385,6 +425,8 @@ def tela_calc_imc():
                 tela_imc.geometry("500x500")
                 lbl_imc.configure(text="O seu imc é de {:.2f}".format(resultado[0]),font=("Arial",30,"bold"),text_color="#7cfc00")
                 lbl_classificacao.configure(text="Sua classificacao é de: {}".format(resultado[1]),wraplength=480,font=("Arial",30,"bold"),text_color="#7cfc00",)
+                entrada_altura.delete(0,'end')
+                entrada_peso.delete(0,'end')
             else:
                 print("erro")
         except:
@@ -405,6 +447,8 @@ def tela_calc_imc():
 def tela_calc_basal():
     tela_basal = customtkinter.CTkToplevel(main_deslogado)
     tela_basal.geometry("500x550")
+    tela_basal.title("M-saude")
+    tela_basal.iconbitmap("imagens/icone_saude.ico")
     tela_basal.attributes('-topmost','true')
     tela_basal.resizable(width=False,height=False)
     minha_imagem2 = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
@@ -439,6 +483,9 @@ def tela_calc_basal():
             if resultado != None:
                 lbl_resultado.configure(text="A sua taxa basal é de\n{:.2f}Kcal".format(resultado),font=("Arial",45,"bold"),text_color="#7cfc00")
                 tela_basal.geometry("500x650")
+                entrada_altura.delete(0,'end')
+                entrada_idade.delete(0,'end')
+                entrada_peso.delete(0,'end')
             else:
                 print("erro")
         except:
@@ -459,6 +506,7 @@ def tela_dieta_personalizada():
     if current_usuario != None:
         tela_seu_objetivo = customtkinter.CTkToplevel(main_deslogado)
         tela_seu_objetivo.geometry("400x300")
+        tela_seu_objetivo.title("M-saude")
         tela_seu_objetivo.attributes('-topmost','true')
         minha_imagem2 = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
         lbl_nome_app = customtkinter.CTkLabel(tela_seu_objetivo,text="M-saude",width=350,height=100,fg_color=["#2CC985", "#2FA572"],font=("Helvetica",50,"bold"),corner_radius=10,image=minha_imagem2)
@@ -477,6 +525,7 @@ def tela_dieta_personalizada():
             print("faca login")
             popup = customtkinter.CTkToplevel(main_deslogado)
             popup.geometry("200x100")
+            popup.title("M-saude")
             popup.attributes('-topmost','true')
             lbl = customtkinter.CTkLabel(popup,text="Faça log-in ou cadastre-se para ter acesso à função",wraplength=180,font=("Arial",20,"bold"),text_color="red")
             lbl.pack()
@@ -486,6 +535,7 @@ def tela_treinos_personalizados():
     if current_usuario != None:
         tela_seu_objetivo = customtkinter.CTkToplevel(main_deslogado)
         tela_seu_objetivo.geometry("400x300")
+        tela_seu_objetivo.title("M-saude")
         tela_seu_objetivo.attributes('-topmost','true')
         minha_imagem2 = customtkinter.CTkImage(Image.open("imagens/icone_saude.ico"), size=(100, 100))
         lbl_nome_app = customtkinter.CTkLabel(tela_seu_objetivo,text="M-saude",width=350,height=100,fg_color=["#2CC985", "#2FA572"],font=("Helvetica",50,"bold"),corner_radius=10,image=minha_imagem2)
@@ -504,6 +554,7 @@ def tela_treinos_personalizados():
             print("faca login")
             popup = customtkinter.CTkToplevel(main_deslogado)
             popup.geometry("200x100")
+            popup.title("M-saude")
             lbl = customtkinter.CTkLabel(popup,text="Faça log-in ou cadastre-se para ter acesso à função",wraplength=180,font=("Arial",20,"bold"),text_color="red")
             lbl.pack()
 #Tela principal deslogado

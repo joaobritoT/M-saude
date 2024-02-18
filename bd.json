@@ -7,31 +7,5 @@
     "genero": "M",
     "dietas": [],
     "treinos": []
-  },
-  {
-    "nome": "pedro",
-    "email": "pedro@gmail.com",
-    "senha": "12345",
-    "idade": "20",
-    "genero": "M",
-    "dietas": [
-      "https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta2000calorias.pdf",
-      "https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta3000calorias.pdf",
-      "https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta1800calorias.pdf",
-      "https://www.endocrinologiausp.com.br/wp-content/uploads/2010/04/dieta1500calorias.pdf"
-    ],
-    "treinos": [
-      "https://cepe.usp.br/wp-content/uploads/TREINO-4-Muscula%C3%A7%C3%A3o.pdf",
-      "https://pt.scribd.com/document/628056676/costas"
-    ]
-  },
-  {
-    "nome": "ana julia gomes",
-    "email": "ana@gmail.com",
-    "senha": "555",
-    "idade": "20",
-    "genero": "F",
-    "dietas": [],
-    "treinos": []
   }
 ]

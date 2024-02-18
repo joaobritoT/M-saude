@@ -1,7 +1,4 @@
 import json
-from random import randint
-from email.message import EmailMessage
-import smtplib
 import webbrowser
 
 class Usuario():
@@ -42,21 +39,6 @@ def calcular__basal(genero, peso, altura,idade):
         basal = 0
     
     return basal
-
-def mandar_email_verificacao(destinatario):
-    adress = 'victor.tavares@uni9.edu.br'
-    senha = 'jv982314'
-
-    msg = EmailMessage()
-    msg['Subject'] = "Código de verificação M-Saúde"
-    msg['From'] = 'victor.tavares@uni9.edu.br'
-    msg['To'] = destinatario
-    codigo = randint(10,1000)
-    msg.set_content("Seu codigo de verificação é: {}".format(codigo))
-    with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
-        smtp.login(adress, senha)
-        smtp.send_message(msg)
-    return codigo
 
 def verificar_se_ja_adicionado(nome, email,senha,idade,genero):
     user = Usuario(nome,email,senha,idade,genero)
